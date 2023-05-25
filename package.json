@@ -1,0 +1,113 @@
+{
+  "name": "@jburmeis/utilities",
+  "version": "1.6.0",
+  "description": "A set of utility functions for TypeScript",
+  "author": "jburmeis <jburmeis@outlook.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jburmeis/js-utilities.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "module": "./esm/index.js",
+  "main": "./cjs/index.js",
+  "sideEffects": false,
+  "files": [
+    "cjs/",
+    "esm/",
+    "src/",
+    "package.json"
+  ],
+  "exports": {
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js"
+    },
+    "./data": {
+      "import": "./esm/data/index.js",
+      "require": "./cjs/data/index.js"
+    },
+    "./collections": {
+      "import": "./esm/collections/index.js",
+      "require": "./cjs/collections/index.js"
+    },
+    "./sampling": {
+      "import": "./esm/sampling/index.js",
+      "require": "./cjs/sampling/index.js"
+    },
+    "./structs": {
+      "import": "./esm/structs/index.js",
+      "require": "./cjs/structs/index.js"
+    },
+    "./utils/array": {
+      "import": "./esm/utils/ArrayUtils.js",
+      "require": "./cjs/utils/ArrayUtils.js"
+    },
+    "./utils/collection": {
+      "import": "./esm/utils/CollectionUtils.js",
+      "require": "./cjs/utils/CollectionUtils.js"
+    },
+    "./utils/immutable": {
+      "import": "./esm/utils/ImmutableUtils.js",
+      "require": "./cjs/utils/ImmutableUtils.js"
+    },
+    "./utils/number": {
+      "import": "./esm/utils/NumberUtils.js",
+      "require": "./cjs/utils/NumberUtils.js"
+    },
+    "./utils/string": {
+      "import": "./esm/utils/StringUtils.js",
+      "require": "./cjs/utils/StringUtils.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "data": [
+        "./esm/data/index.d.ts"
+      ],
+      "collections": [
+        "./esm/collections/index.d.ts"
+      ],
+      "sampling": [
+        "./esm/sampling/index.d.ts"
+      ],
+      "structs": [
+        "./esm/structs/index.d.ts"
+      ],
+      "utils/array": [
+        "./esm/utils/ArrayUtils.d.ts"
+      ],
+      "utils/collection": [
+        "./esm/utils/CollectionUtils.d.ts"
+      ],
+      "utils/immutable": [
+        "./esm/utils/ImmutableUtils.d.ts"
+      ],
+      "utils/number": [
+        "./esm/utils/NumberUtils.d.ts"
+      ],
+      "utils/string": [
+        "./esm/utils/StringUtils.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "clean-build-dirs": "rimraf ./cjs && rimraf ./esm",
+    "prepublishOnly": "npm run test & npm run clean-build-dirs & npm run build",
+    "test": "cross-env TS_NODE_PROJECT=tsconfig-cjs.json mocha --require ts-node/register test/**/*.ts"
+  },
+  "devDependencies": {
+    "@types/chai": "4.3.5",
+    "@types/mocha": "10.0.1",
+    "chai": "4.3.7",
+    "cross-env": "7.0.3",
+    "mocha": "10.2.0",
+    "rimraf": "3.0.2",
+    "ts-node": "10.9.1",
+    "typescript": "5.0.4"
+  }
+}

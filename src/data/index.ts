@@ -1,0 +1,10 @@
+export { default as CategoricalHistogram } from './CategoricalHistogram';
+export { default as Histogram, HistogramBinScaling, HistogramBin } from './Histogram';
+export * from './HistogramBinEstimators';
+export { default as KernelDensityEstimation } from './KernelDensityEstimation';
+export * from './KernelFunctions';
+export { default as NumericHistogram, NumericHistogramBin } from './NumericHistogram';
+export { default as NumericSegmentHistogram, NumericSegmentHistogramBin, SegmentBin } from './NumericSegmentHistogram';
+export * from './StatisticsReport';
+export * from './StatisticsUtils';
+export { default as IntegerHistogram, IntegerHistogramBin } from './IntegerHistogram';
